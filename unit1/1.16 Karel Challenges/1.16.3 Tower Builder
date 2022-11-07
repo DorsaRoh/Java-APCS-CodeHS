@@ -1,0 +1,49 @@
+// Tower Builder Karel
+
+public class TowerBuilderKarel extends SuperKarel
+{
+    public void run()
+    {
+        buildTower();
+        
+        while(frontIsClear())
+        {
+            move();
+            safeMove();
+        }
+    }
+    
+    
+    private void safeMove()
+    {
+        if(frontIsClear())
+        {
+            move();
+            buildTower();
+        }
+        
+    }
+    
+    
+    private void buildTower()
+    {
+        turnLeft();
+        
+        for(int i=0;i<3;i++)
+        {
+            putBall();
+            move();
+        }
+        
+        turnAround();
+        
+        for(int i=0;i<3;i++)
+        {
+            move();
+        }
+        
+        turnLeft();
+        
+    }
+    
+}
