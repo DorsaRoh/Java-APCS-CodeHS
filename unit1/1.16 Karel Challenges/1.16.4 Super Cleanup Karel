@@ -1,0 +1,126 @@
+// Super Cleanup Karel
+
+public class SuperCleanupKarel extends SuperKarel
+{
+
+    public void run()
+    {
+        sweep();
+    
+        if(rightIsBlocked())
+        {
+            while(leftIsClear())
+            {
+                sweep();
+                goBack();
+                moveUp();
+            }
+            
+            if(leftIsBlocked())
+            {
+                if(ballsPresent())
+                {
+                    takeBall();
+                }
+                
+                while(frontIsClear())
+                {
+                    if(ballsPresent())
+                    {
+                        takeBall();
+                    }
+                    move();
+                }
+                
+                if(ballsPresent())
+                {
+                    takeBall();
+                }
+                
+                goHome();
+            }
+        }
+}
+    private void goBack()
+    {
+        turnAround();
+        
+        while(frontIsClear())
+        {
+            move();
+        }
+        
+        turnAround();
+    }
+    
+    private void moveUp()
+    {
+        turnLeft();
+        
+        if(ballsPresent())
+        {
+            takeBall();
+        }
+        
+        move();
+        turnRight();
+    }
+    
+    private void sweep()
+    {
+        while(frontIsClear())
+        {
+            if(ballsPresent())
+            {
+                takeBall();
+            }
+            
+            move();
+        }
+        
+        if(frontIsBlocked())
+        {
+            if(facingEast())
+            {
+                if(ballsPresent())
+                {
+                    takeBall();
+                }
+                
+                if(leftIsBlocked())
+                {
+                    goHome();
+                }
+            }
+        }
+    }
+    
+    private void goHome()
+    {
+        if(facingEast())
+        {
+            turnAround();
+            while(frontIsClear())
+            {
+                move();
+            }
+            
+            if(leftIsBlocked())
+            {
+                turnAround();
+            }
+            
+            else
+            {
+                turnLeft();
+                while(frontIsClear())
+                {
+                    move();
+                }
+                
+                turnLeft();
+            }
+        }
+    }
+
+}
