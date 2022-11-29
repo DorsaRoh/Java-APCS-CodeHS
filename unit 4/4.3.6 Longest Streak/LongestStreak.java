@@ -5,7 +5,7 @@ public class LongestStreak extends ConsoleProgram
     public void run()
     {
         
-        int countHeads = 0, longestStreak = 0, streak = 0;
+        int longestStreak = 0, streak = 0;
         
         for(int i = 0; i < FLIPS; i++)
         {
