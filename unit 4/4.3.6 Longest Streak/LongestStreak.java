@@ -4,33 +4,32 @@ public class LongestStreak extends ConsoleProgram
     
     public void run()
     {
+    
+    int countStreak = 0;
+    int longestStreak= 0;
+    
+    for(int i = 0; i < FLIPS; i++)
+    {
+        boolean coinFlip = Randomizer.nextBoolean();
         
-        int longestStreak = 0, streak = 0;
-        
-        for(int i = 0; i < FLIPS; i++)
+        if(coinFlip == true)
         {
+            System.out.println("Heads");
+            countStreak++;
             
-            if(Randomizer.nextBoolean())
+            if(countStreak > longestStreak)
             {
-                System.out.println("Heads");
-                streak ++;
+                longestStreak = countStreak;
             }
-            else
-            {
-                System.out.println("Tails");
-                
-                if(longestStreak < streak)
-                {
-                    longestStreak = streak;
-                }
-                
-                streak = 0;
-            }
-            
-
         }
-
-        System.out.println("Longest streak of heads: " + longestStreak);
+        else
+        {
+            System.out.println("Tails");
+            countStreak = 0;
+        }
+    }
+    
+    System.out.println("Longest streak of heads: " + longestStreak);
 
     }
 }
