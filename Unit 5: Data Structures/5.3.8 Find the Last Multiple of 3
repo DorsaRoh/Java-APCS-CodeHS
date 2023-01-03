@@ -1,0 +1,13 @@
+public int findMultipleOfThree(int[] arr)
+    {
+        int tracker = 0;
+        for(int i=0; i < arr.length; i++)
+        {
+            if(arr[i] % 3 == 0)
+            {
+                tracker = i;
+            }
+        }
+        
+        return tracker;
+    }
