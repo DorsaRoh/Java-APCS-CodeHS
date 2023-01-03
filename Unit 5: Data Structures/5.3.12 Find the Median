@@ -1,0 +1,17 @@
+public double median(int[] arr)
+    {
+        Arrays.sort(arr);
+        
+        double median = 0.0;
+        
+        if(arr.length % 2 == 1){
+            median = arr[arr.length/2];
+        }
+        
+        else{
+            median = (arr[arr.length/2] + arr[arr.length/2 -1]) / 2.0;
+            System.out.println(median);
+        }
+
+        return median;
+    }
